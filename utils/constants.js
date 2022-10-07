@@ -19,7 +19,20 @@ export const items = [
   },
 ];
 
+export const filterButtons = [
+  {
+    buttonClass: 'filter__button_type_grid',
+    isGrid: true
+  },
+  {
+    buttonClass: 'filter__button_type_column',
+    isGrid: false
+  }
+];
+
 export const cardListSelector = '.card-list__items';
+export const filterListSelector = '.filter';
+export const filterButtonTemplate = '.filter-button';
 export const cardList = document.querySelector('.card-list__items');
 export const popupElement = document.querySelector('.popup');
 export const popupCloseButton = document.querySelector('.popup__close');
