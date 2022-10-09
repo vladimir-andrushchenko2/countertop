@@ -5,7 +5,7 @@ import {
   defaultCardButton,
   horizontalCardButton,
   cardListSelector,
-  items, 
+  items,
   filterButtons,
   filterListSelector,
   filterButtonTemplate
@@ -30,19 +30,23 @@ const horizontalCardList = new Section({
   }
 }, cardListSelector);
 
-const filterList = new Section({data: filterButtons, renderer: (item) => {
-  const filterButton = new FilterButton({data: item, handleButtonClick: (isGrid) => {
-    if (isGrid) {
-      defaultCardList.renderItems();
-    } else {
-      horizontalCardList.renderItems();
-    }
-  }}, filterButtonTemplate);
-  
-  const filterButtonElement = filterButton.generateButton();
-  
-  filterList.SetItem(filterButtonElement);
-}}, filterListSelector);
+const filterList = new Section({
+  data: filterButtons, renderer: (item) => {
+    const filterButton = new FilterButton({
+      data: item, handleButtonClick: (isGrid) => {
+        if (isGrid) {
+          defaultCardList.renderItems();
+        } else {
+          horizontalCardList.renderItems();
+        }
+      }
+    }, filterButtonTemplate);
+
+    const filterButtonElement = filterButton.generateButton();
+
+    filterList.setItem(filterButtonElement);
+  }
+}, filterListSelector);
 
 defaultCardList.renderItems();
 filterList.renderItems();
